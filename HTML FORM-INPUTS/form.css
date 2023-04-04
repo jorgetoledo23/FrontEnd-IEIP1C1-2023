@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.container{
+
+    width: 80%;
+    margin: auto;
+    border: 1px solid black;
+    height: 99vh;
+    text-align: center;
+
+}
+
+
+
+.formulario-contacto input[type=text]{
+    padding: 5px;
+    margin: 5px;
+}
+
+input, select, textarea,button{
+    display: block;
+}
+
+form input{
+    color: red;
+}
+
+form > input{
+    color: blue;
+}
+
+
+
