@@ -12,26 +12,59 @@
     margin: auto;
     border: 1px solid red;
 
+
 }
 
 #static{
     background-color: burlywood;
     height: 100px;
+    z-index: 9;
 }
 
 #fixed{
     background-color: aquamarine;
     height: 100px;
 
+    position: relative;
+    top: 10px;
+    right: 10px;
+
+    width: 100%;
+
+    z-index: 1;
+    /*
+    bottom: ;
+    left: ;
+    */
 }
 
 #relative{
     background-color: cadetblue;
     height: 100px;
+
+    position: relative;
+
+    bottom: 10px;
+    right: 10px;
+    z-index: 2;
 }
 
 #absolute{
     background-color:darkgoldenrod;
+    height: 50px;
+
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+}
+
+#padre{
+    background-color: black;
+    
+    color: white;
+    position: relative;
     height: 100px;
+    overflow: auto;
 }
 
