@@ -24,6 +24,11 @@ const products = [
 
 ]
 
+const toCLP = new Intl.NumberFormat('es-CL', {
+    style : 'currency',
+    currency : 'CLP'
+})
+
 
 const root = document.getElementById('root')
 
@@ -33,20 +38,28 @@ products.forEach( num => {
     const img = document.createElement('img') // Imagen del producto
     const desc = document.createElement('p') // Descripcion
     const precio = document.createElement('p')// Precio
-    div.classList.add('card','text-center', 'col-3')
+    const btnAdd = document.createElement('button') //button add
+    
+    div.classList.add('card','text-center', 'col-md-3', 'p-5', 'm-2')
 
     desc.classList.add("card-title")
     desc.innerText = num.Descripcion
 
     img.src = num.UrlImagen
+    img.classList.add('d-block', 'm-3', 'mx-auto')
+    img.style.width = "150px"
+    img.style.minHeight = "150px"
+    img.style.maxHeight = "150px"
 
-    precio.innerText = num.Precio
+    precio.innerText = toCLP.format(num.Precio)
 
-
+    btnAdd.innerHTML = '<i class="fa-solid fa-cart-plus me-2"></i>Add'
+    btnAdd.classList.add('btn', 'btn-outline-danger')
 
     div.appendChild(desc)
     div.appendChild(img)
     div.appendChild(precio)
+    div.appendChild(btnAdd)
     root.appendChild(div)
 
 })
