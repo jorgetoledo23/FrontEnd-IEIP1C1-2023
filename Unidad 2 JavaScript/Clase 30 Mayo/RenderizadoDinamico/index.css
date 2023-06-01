@@ -1,0 +1,21 @@
+#carroContainer{
+
+    position: fixed;
+    background-color: rgba(92, 100, 98, 0.897);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    width: 80%;
+    height: 0vh;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    z-index: 99;
+
+    transition: 1.5s;
+
+}
+
+#productContainer{
+    display: none;
+}
