@@ -34,6 +34,12 @@ const products = [
         "Precio": 1234564,
         "UrlImagen": "https://media.solotodo.com/media/products/1228061_picture_1599591333.webp"
     },
+    {
+        "Cod": "4",
+        "Descripcion": "Microsoft Xbox Series S",
+        "Precio": 345678,
+        "UrlImagen": "https://media.solotodo.com/media/products/1263786_picture_1604618116.jpg"
+    },
 
 
 ]
@@ -68,12 +74,62 @@ products.forEach(num => {
     precio.innerText = toCLP.format(num.Precio)
 
     btnAdd.innerHTML = '<i class="fa-solid fa-cart-plus me-2"></i>Add'
-    btnAdd.classList.add('btn', 'btn-outline-danger')
+    btnAdd.classList.add('btn', 'btn-danger')
     
     //1er Nivel de Dificultad 
     //Aparezca el Producto Agregado en el ProductContainer
     btnAdd.addEventListener('click', ()=>{
+
+        //2do Nivel de Dificultad
+        //Eliminar Producto del Carro
+
+
+        //3er Nivel de Difucltad
+        //Aumentar cantidad y evitar duplicidad
+
+        const divCarro = document.createElement('div') // Contenedor del producto
+        const imgCarro = document.createElement('img') // Imagen del producto
+        const descCarro = document.createElement('p') // Descripcion
+        const precioCarro = document.createElement('p') // Precio
+        const btnCarro = document.createElement('a') //btn Eliminar
+        const cantidad = document.createElement('p')
+
+        divCarro.classList.add('card', 'text-center', 'p-1', 'm-2')
+        descCarro.classList.add("card-title")
+        descCarro.innerText = num.Descripcion
+
+        imgCarro.src = num.UrlImagen
+        imgCarro.classList.add('d-block', 'm-3', 'mx-auto')
+        imgCarro.style.width = "50px"
+        imgCarro.style.minHeight = "50px"
+        imgCarro.style.maxHeight = "50px"
+
+        precioCarro.innerText = toCLP.format(num.Precio)
+
+       
+        btnCarro.classList.add('btn', 'btnEliminarFromCart')
+        btnCarro.innerHTML = '<i class="fa-solid fa-trash">'
+        btnCarro.addEventListener('click', ()=>{
+            productContainer.removeChild(divCarro)
+        })
+
+        cantidad.innerText = "Cantidad: " + '1'
+
+
+        divCarro.appendChild(descCarro)
+        divCarro.appendChild(imgCarro)
+        divCarro.appendChild(cantidad)
+        divCarro.appendChild(precioCarro)
         
+        divCarro.appendChild(btnCarro)
+
+        productContainer.appendChild(divCarro)
+
+
+
+
+
+
     })
 
 

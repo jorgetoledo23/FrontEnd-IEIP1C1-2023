@@ -19,3 +19,11 @@
 #productContainer{
     display: none;
 }
+
+.btnEliminarFromCart{
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 20px;
+    margin: auto;
+}
