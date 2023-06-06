@@ -90,6 +90,9 @@ products.forEach(num => {
     //Aparezca el Producto Agregado en el ProductContainer
     btnAdd.addEventListener('click', ()=>{
 
+        productAdded()
+
+
         TOTAL = TOTAL + num.Precio
         const total = document.getElementById('total')
         total.innerText = toCLP.format(TOTAL)
@@ -184,3 +187,9 @@ products.forEach(num => {
     root.appendChild(div)
 
 })
+
+
+function productAdded(){
+    const divAdded = document.getElementById('product-added')
+    divAdded.style.display = 'block'
+}
