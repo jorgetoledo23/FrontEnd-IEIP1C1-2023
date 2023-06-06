@@ -14,6 +14,19 @@ carroContainer.addEventListener('transitionstart', () => {
     productContainer.style.display == 'block' ? productContainer.style.display = 'none' : productContainer.style.display = 'block'
 })
 
+const toCLP = new Intl.NumberFormat('es-CL', {
+    style: 'currency',
+    currency: 'CLP'
+})
+
+let TOTAL = 0
+
+const Total = document.createElement('strong')
+Total.innerText = toCLP.format(TOTAL)
+Total.id = 'total'
+Total.classList.add('mx-3')
+btnOpenCart.appendChild(Total)
+
 
 const array = ['https://media.solotodo.com/media/products/1473681_picture_1634002127.jpg', 'https://media.solotodo.com/media/products/1473681_picture_1634002127.jpg', 'https://media.solotodo.com/media/products/1473681_picture_1634002127.jpg']
 
@@ -44,10 +57,7 @@ const products = [
 
 ]
 
-const toCLP = new Intl.NumberFormat('es-CL', {
-    style: 'currency',
-    currency: 'CLP'
-})
+
 
 
 const root = document.getElementById('root')
@@ -80,19 +90,34 @@ products.forEach(num => {
     //Aparezca el Producto Agregado en el ProductContainer
     btnAdd.addEventListener('click', ()=>{
 
+        TOTAL = TOTAL + num.Precio
+        const total = document.getElementById('total')
+        total.innerText = toCLP.format(TOTAL)
+
         //2do Nivel de Dificultad
         //Eliminar Producto del Carro
-
 
         //3er Nivel de Difucltad
         //Aumentar cantidad y evitar duplicidad
 
-        const divCarro = document.createElement('div') // Contenedor del producto
+
+        const exists = document.getElementById(num.Cod)
+        if(exists){
+            //Aumentar Cantidad Y Precio
+            exists.innerText = parseInt(exists.innerText) + 1
+            const divPadre = exists.parentNode.parentNode
+            const precio = divPadre.childNodes[3]
+            let subTotal = parseInt(num.Precio) * parseInt(exists.innerText)
+            precio.innerText = toCLP.format(subTotal)
+            
+        }else{
+            const divCarro = document.createElement('div') // Contenedor del producto
         const imgCarro = document.createElement('img') // Imagen del producto
         const descCarro = document.createElement('p') // Descripcion
         const precioCarro = document.createElement('p') // Precio
         const btnCarro = document.createElement('a') //btn Eliminar
-        const cantidad = document.createElement('p')
+        const textoCantidad = document.createElement('p') // Cantidad
+        const cantidad = document.createElement('span')
 
         divCarro.classList.add('card', 'text-center', 'p-1', 'm-2')
         descCarro.classList.add("card-title")
@@ -106,24 +131,41 @@ products.forEach(num => {
 
         precioCarro.innerText = toCLP.format(num.Precio)
 
-       
+        textoCantidad.innerText = "Cantidad: "
+        cantidad.innerText = 1
+        cantidad.id = num.Cod
+        textoCantidad.appendChild(cantidad)
+
         btnCarro.classList.add('btn', 'btnEliminarFromCart')
         btnCarro.innerHTML = '<i class="fa-solid fa-trash">'
         btnCarro.addEventListener('click', ()=>{
+            
+            const cantidad = document.getElementById(num.Cod)
+            TOTAL = TOTAL - (num.Precio * parseInt(cantidad.innerText))
+            const total = document.getElementById('total')
+            total.innerText = toCLP.format(TOTAL)
             productContainer.removeChild(divCarro)
         })
 
-        cantidad.innerText = "Cantidad: " + '1'
+        
+
+        
 
 
         divCarro.appendChild(descCarro)
         divCarro.appendChild(imgCarro)
-        divCarro.appendChild(cantidad)
+        divCarro.appendChild(textoCantidad)
         divCarro.appendChild(precioCarro)
         
         divCarro.appendChild(btnCarro)
 
         productContainer.appendChild(divCarro)
+        
+        }
+
+
+
+        
 
 
 

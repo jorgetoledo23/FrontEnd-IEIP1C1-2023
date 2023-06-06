@@ -1,7 +1,7 @@
 #carroContainer{
 
     position: fixed;
-    background-color: rgba(92, 100, 98, 0.897);
+    background-color: white;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     width: 80%;
