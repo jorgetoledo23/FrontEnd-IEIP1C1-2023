@@ -1,8 +1,36 @@
-const btn = document.getElementById("btn")
-const lc2 = document.getElementById("LC2")
+const Usuarios = [
+    {
+        "Username" : "admin",
+        "Password" : "admin"
+    },
+    {
+        "Username" : "vendedor",
+        "Password" : "123456"
+    },
+    {
+        "Username" : "asistente",
+        "Password" : "asd"
+    }
+]
 
-btn.addEventListener("click", () => {
-    const nuevoLi = document.createElement("li")
-    nuevoLi.innerText = 6
-    lc2.appendChild(nuevoLi)
+let username = "asistente"
+let pass = "123"
+
+const existeUser = Usuarios.find(x=> {
+    if(x.Username == username){
+        return x
+    }
 })
+
+if(existeUser != undefined){
+    //Comparar Password
+    existeUser.Password == pass ? console.log("Inicio de Sesion Exitoso")
+    : console.log("Password Incorrecto")
+}else{
+    console.log("Usuario NO Existe")
+}
+
+
+
+
+

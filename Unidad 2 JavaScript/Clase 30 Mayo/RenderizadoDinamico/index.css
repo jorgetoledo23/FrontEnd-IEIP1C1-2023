@@ -1,3 +1,16 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+img {
+    display: block;
+    max-width:230px;
+    max-height:95px;
+    width: auto;
+    height: auto;
+}
+
 #carroContainer {
 
     position: fixed;
@@ -34,19 +47,15 @@
 
 .wrapper {
     position: fixed;
-    top: -40px;
-    left: 40px;
+    top: -45px;
+    left: 0px;
+    right: 0px;
     width: 300px;
     padding: 30px;
+    margin: auto;
+    z-index: 99;
 }
 
-.product-added{
-    position: fixed;
-    top: 0px;
-    left: 220px;
-    width: 300px;
-    padding: 30px;
-}
 .checkmark__circle {
     stroke-dasharray: 166;
     stroke-dashoffset: 166;
