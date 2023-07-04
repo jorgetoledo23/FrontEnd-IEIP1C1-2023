@@ -1,46 +1,35 @@
 import { useState } from "react"
 import Navbar from "./components/Navbar"
+import data from './data.json'
+import CardProducto from "./components/CardProducto"
+import Carro from "./components/Carro"
+
 function App() {
   
-  const [contador, setContador] = useState(0)
-  const [carroVisible, setCarroVisible] = useState(false)
-  const [productos, setProductos] = useState([])
+  const [carroVisible, setCarroVisible] = useState(false) //false = carro width 0%, true carro width 100%
+  const [cartProducts, setCartProducts] = useState([])
 
-  const aumentarContador = () =>{
-    setContador((cont) =>  cont + 1)
-  }
-  const disminuirContador = () =>{
-    contador == 0 ? setContador(0) : setContador((cont) => cont - 1)
-  }
-
-  const toggleDiv = () =>{
+  const toggleCarro = () =>{
     setCarroVisible(!carroVisible)
   }
+
+  const addToCart = (P) =>{
+    let copyCart = [...cartProducts]
+    copyCart.push(P)
+    setCartProducts(copyCart)
+  }
+
+
+
   
   return (
     <div className="App">
-      <Navbar asd={ toggleDiv } ancho={100} largo={100}/>
+      <Navbar fToggleCarro={toggleCarro} />
+      <Carro Productos={cartProducts} carroVisible={carroVisible} fToggleCarro={toggleCarro} />
 
-
-      Clase Front End 29 Junio
-
-      <h1>Hooks useState</h1>
-
-      <div><button onClick={ ()=>{ aumentarContador () }  }>+</button></div>
-      <h4>Contador : {contador}</h4>
-      <div><button onClick={ ()=>{ disminuirContador () }  }>-</button></div>
-
-      <hr/>
-
-      <div>
-        <button onClick={ () => { toggleDiv() }}>Toggle Div</button>
+      <div className="row justify-content-evenly m-5">
+        {data.map(P => <CardProducto fAddToCart={addToCart} producto={P} />)}
       </div>
-      <div style={{ display : carroVisible ? 'block' : 'none'  }}>
-        <img width={300} height={300} src="https://dotnet.microsoft.com/static/images/refresh/home-hero.png"></img>
-      </div>
-
-
-
     </div>
   );
 }

@@ -11,3 +11,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.carroCompras {
+  background-color: white;
+  width: 0;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  transition: 1.5s;
+}
+
+.cartProduct{
+  width: 80%;
+  display: flex;
+  border: 1px solid black;
+  border-radius: 10px;
+  height: 150px;
+  margin: 20px auto;
+  padding: 10px;
+  justify-content: space-evenly;
+  align-items: center;
+  
+}
+
+.cartProduct p{
+margin: 0px;
+}

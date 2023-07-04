@@ -1,14 +1,10 @@
-export default function Navbar ({ asd, ...props}) {
+export default function Navbar ({ fToggleCarro }) {
 
-    console.log(props)
-    const styles = {
-        backgroundColor : "red",
-    }
-
-    return  <nav className="navbar bg-body-tertiary" style={ styles  }>
+    return  <nav className="navbar bg-body-tertiary">
                 <div className="container-fluid">
-                <span className="navbar-brand mb-0 h1">Navbar</span>
-                <button onClick={() => { asd() }} className="btn btn-outline-success">Toggle Div</button>
+                <span className="navbar-brand mb-0 h1">Carro React</span>
+                <button onClick={ () => { fToggleCarro () }}
+                className="btn btn-outline-success"><i className="bi bi-cart"></i></button>
                 </div>
             </nav>
 
