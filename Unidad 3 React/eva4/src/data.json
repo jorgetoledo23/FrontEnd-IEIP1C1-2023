@@ -1,0 +1,63 @@
+[
+    { 
+        "Cod" : 1002,
+        "Sede" : "Inacap Curico",
+        "Direccion" : "Archipiélago Juan Fernández #2010 Curicó, Región del Maule",
+        "Telefono":"+56 9 1234 5678",
+        "Email" : "inacapcurico@inacap.cl",
+        "ImgUrl" : "https://portales.inacap.cl/Assets/sedes/curico/frontis-home-2019-2.jpg",
+        "Carreras" : [
+            {
+                "Cod" : 1,
+                "Name" : "Ingenieria en Informatica",
+                "Duracion" : "8 Semestres"
+            },
+            {
+                "Cod" : 2,
+                "Name" : "Analista Programador",
+                "Duracion" : "4 Semestres"
+            },
+            {
+                "Cod" : 3,
+                "Name" : "Ingenieria Agricola",
+                "Duracion" : "8 Semestres"
+            }
+        ]
+    },
+    { 
+        "Cod" : 1003,
+        "Sede" : "Inacap Talca",
+        "Direccion" : "Av. San Miguel 3.496 Talca, Región del Maule",
+        "Telefono":"+56 9 4563 7856",
+        "Email" : "inacaptalca@inacap.cl",
+        "ImgUrl" : "https://portales.inacap.cl/Assets/sedes/talca/Fachada-Talca.jpg",
+        "Carreras" : [
+            {
+                "Cod" : 1,
+                "Name" : "Ingenieria en Informatica",
+                "Duracion" : "8 Semestres"
+            },
+            {
+                "Cod" : 2,
+                "Name" : "Analista Programador",
+                "Duracion" : "4 Semestres"
+            },
+            {
+                "Cod" : 3,
+                "Name" : "Ingenieria Agricola",
+                "Duracion" : "8 Semestres"
+            },
+            {
+                "Cod" : 4,
+                "Name" : "Ingenieria Comercial",
+                "Duracion" : "8 Semestres"
+            },
+            {
+                "Cod" : 5,
+                "Name" : "Gastronomia Internacional",
+                "Duracion" : "8 Semestres"
+            }
+
+        ]
+    }
+]
